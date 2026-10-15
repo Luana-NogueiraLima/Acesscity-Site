@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa de Ocorrências – AcessCity</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .mapa-toolbar { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; margin-bottom:20px; }
+    .search-wrap { position:relative; flex:1; min-width:200px; max-width:340px; }
+    .search-wrap input { width:100%; padding:11px 16px 11px 40px; border:1.5px solid var(--cinza-300); border-radius:var(--radius-full); font-size:0.9rem; outline:none; transition:var(--trans); }
+    .search-wrap input:focus { border-color:var(--azul-primario); box-shadow:0 0 0 3px rgba(26,111,191,0.12); }
+    .search-icon { position:absolute; left:14px; top:50%; transform:translateY(-50%); }
+    .oc-img { width:44px; height:44px; border-radius:var(--radius-sm); background:var(--cinza-200); display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0; }
+    .oc-card-inner { display:flex; gap:12px; align-items:flex-start; }
+    .oc-body { flex:1; min-width:0; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="navbar-logo">
+   <div class="logo-icon">
+        <img src="imagens/logo.png" alt="Logo AcessCity">
+    </div>
+    AcessCity<span class="accent"></span>
+</a>
+    <ul class="navbar-nav">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="mapa.html" class="active">Mapa</a></li>
+      <li><a href="recompensas.html">Recompensas</a></li>
+      <li><a href="denuncia.html">Denunciar</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <div class="navbar-actions">
+      <button id="btn-contraste" class="btn btn-secondary btn-sm">Contraste</button>
+      <a href="denuncia.html" class="btn btn-primary btn-sm">＋ Denunciar</a>
+    </div>
+    <button class="navbar-toggle"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav class="mobile-menu">
+  <a href="index.html">Início</a><a href="sobre.html">Sobre</a>
+  <a href="mapa.html">Mapa</a><a href="recompensas.html">Recompensas</a>
+  <a href="denuncia.html">Denunciar</a><a href="contato.html">Contato</a>
+</nav>
+
+<main>
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">Início</a><span>›</span><span>Mapa</span></nav>
+    <span class="badge">Recife, PE</span>
+    <h1>Mapa de Ocorrências</h1>
+    <p>Visualize em tempo real as ocorrências de acessibilidade registradas pelos cidadãos.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="mapa-toolbar">
+      <div class="search-wrap">
+        <span class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#a1a3a5" viewBox="0 0 256 256"><path d="M232.49,215.51,185,168a92.12,92.12,0,1,0-17,17l47.53,47.54a12,12,0,0,0,17-17ZM44,112a68,68,0,1,1,68,68A68.07,68.07,0,0,1,44,112Z"></path></svg></path></svg></span>
+        <input type="search" id="search-oc" placeholder="Buscar bairro ou rua..." />
+      </div>
+      <div class="filtros">
+        <button class="filtro-btn active" data-filtro="todos">Todos</button>
+        <button class="filtro-btn" data-filtro="rampa">🔵 Rampa</button>
+        <button class="filtro-btn" data-filtro="calcada">🟡 Calçada</button>
+        <button class="filtro-btn" data-filtro="sinalizacao">🟠 Sinalização</button>
+        <button class="filtro-btn" data-filtro="outros">⚫ Outros</button>
+      </div>
+      <a href="denuncia.html" class="btn btn-primary btn-sm">＋ Nova denúncia</a>
+    </div>
+
+    <div class="mapa-layout">
+
+      <!-- Mapa simulado -->
+      <div class="mapa-container">
+        <div class="map-bg"></div>
+        <div class="map-zone-large mz1"></div>
+        <div class="map-zone-large mz2"></div>
+        <div class="map-zone-large mz3"></div>
+        <div class="map-zone-large mz4"></div>
+        <div class="map-marker marker-laranja" style="top:38%;left:44%" title="Calçada danificada – Boa Vista"></div>
+        <div class="map-marker marker-ambar"   style="top:22%;left:58%" title="Rampa destruída – Derby"></div>
+        <div class="map-marker marker-laranja" style="bottom:38%;left:38%" title="Obstáculo – Espinheiro"></div>
+        <div class="map-marker marker-azul"    style="top:55%;right:28%" title="Sinalização ausente – Graças"></div>
+        <div class="map-marker marker-verde"   style="top:70%;left:25%" title="Resolvido – Santo Amaro"></div>
+        <div class="map-marker marker-ambar"   style="top:15%;left:30%" title="Buraco – Casa Forte"></div>
+        <div class="mapa-legenda">
+          <div class="legenda-item"><div class="legenda-dot" style="background:var(--verde)"></div><span>Alta acessibilidade</span></div>
+          <div class="legenda-item"><div class="legenda-dot" style="background:var(--ambar)"></div><span>Média acessibilidade</span></div>
+          <div class="legenda-item"><div class="legenda-dot" style="background:var(--laranja)"></div><span>Baixa acessibilidade</span></div>
+        </div>
+        <div style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-radius:var(--radius-md);padding:10px 14px;font-size:0.78rem;color:var(--cinza-700)">Mapa simulado — Recife, PE</div>
+      </div>
+
+      <!-- Lista de ocorrências -->
+      <div>
+        <h3 style="margin-bottom:16px">Ocorrências recentes <span style="font-size:0.8rem;color:var(--cinza-500)">(6)</span></h3>
+        <div class="ocorrencias-list" id="lista-ocorrencias">
+
+          <article class="ocorrencia-card" data-categoria="calcada">
+            <div class="oc-card-inner">
+              <div class="oc-body">
+                <div class="oc-header"><span class="oc-titulo">Calçada com desnível</span><span class="status-badge status-laranja">🔴 Alto</span></div>
+                <div class="oc-local">Boa Vista · R. do Hospício</div>
+                <div class="oc-footer"><span class="status-badge status-ambar">Em análise</span><span class="oc-data">02/06/2026</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ocorrencia-card" data-categoria="rampa">
+            <div class="oc-card-inner">
+              <div class="oc-body">
+                <div class="oc-header"><span class="oc-titulo">Rampa destruída</span><span class="status-badge status-laranja">🔴 Alto</span></div>
+                <div class="oc-local">Derby · Av. Agamenon Magalhães</div>
+                <div class="oc-footer"><span class="status-badge status-azul">Em execução</span><span class="oc-data">31/05/2026</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ocorrencia-card" data-categoria="sinalizacao">
+            <div class="oc-card-inner">
+              <div class="oc-body">
+                <div class="oc-header"><span class="oc-titulo">Piso tátil ausente</span><span class="status-badge status-ambar">🟡 Médio</span></div>
+                <div class="oc-local">Graças · R. Maranhão</div>
+                <div class="oc-footer"><span class="status-badge status-ambar"> Em análise</span><span class="oc-data">28/05/2026</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ocorrencia-card" data-categoria="calcada">
+            <div class="oc-card-inner">
+              <div class="oc-body">
+                <div class="oc-header"><span class="oc-titulo">Obstáculo na calçada</span><span class="status-badge status-ambar">🟡 Médio</span></div>
+                <div class="oc-local">Espinheiro · R. Luís Guimarães</div>
+                <div class="oc-footer"><span class="status-badge status-verde">Resolvido</span><span class="oc-data">25/05/2026</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ocorrencia-card" data-categoria="outros">
+            <div class="oc-card-inner"></div>
+              <div class="oc-body">
+                <div class="oc-header"><span class="oc-titulo">Falta de iluminação</span><span class="status-badge status-verde">🟢 Baixo</span></div>
+                <div class="oc-local">Santo Amaro · R. São Benedito</div>
+                <div class="oc-footer"><span class="status-badge status-verde">Resolvido</span><span class="oc-data">20/05/2026</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ocorrencia-card" data-categoria="outros">
+            <div class="oc-card-inner"></div>
+              <div class="oc-body">
+                <div class="oc-header"><span class="oc-titulo">Buraco na via pública</span><span class="status-badge status-laranja">🔴 Alto</span></div>
+                <div class="oc-local">Casa Forte · Av. 17 de Agosto</div>
+                <div class="oc-footer"><span class="status-badge status-ambar">Recebida</span><span class="oc-data">18/05/2026</span></div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <div style="margin-top:20px">
+          <a href="denuncia.html" class="btn btn-primary" style="width:100%;justify-content:center">Registrar nova ocorrência</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabela de status -->
+    <div style="margin-top:48px">
+      <h3 style="margin-bottom:16px">Resumo de Status das Ocorrências</h3>
+      <div class="ranking-table-wrapper">
+        <table class="ranking-table">
+          <thead><tr><th>Categoria</th><th>Total</th><th>Recebidas</th><th>Em Análise</th><th>Em Execução</th><th>Resolvidas</th></tr></thead>
+          <tbody>
+            <tr><td>Rampa</td><td><strong>1</strong></td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>Calçada</td><td><strong>2</strong></td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>Sinalização</td><td><strong>1</strong></td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td>Outros</td><td><strong>2</strong></td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+            <tr style="background:var(--cinza-100);font-weight:700"><td>Total</td><td>6</td><td>1</td><td>2</td><td>1</td><td>2</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo">
+    AcessCity
+      </div><p>UNICAP – Sistemas para Internet · Recife, 2026.</p></div>
+      <nav class="footer-col"><h5>Projeto</h5><ul><li><a href="sobre.html">Sobre</a></li></ul></nav>
+      <nav class="footer-col"><h5>Plataforma</h5><ul><li><a href="mapa.html">Mapa</a></li><li><a href="denuncia.html">Denunciar</a></li></ul></nav>
+      <nav class="footer-col"><h5>Suporte</h5><ul><li><a href="contato.html">Contato</a></li></ul></nav>
+    </div>
+  </div>
+</footer>
+<button class="scroll-top">↑</button>
+<script src="script.js"></script>
+<script>
+  document.getElementById('search-oc')?.addEventListener('input', function () {
+    const q = this.value.toLowerCase();
+    document.querySelectorAll('.ocorrencia-card').forEach(card => {
+      card.style.display = card.textContent.toLowerCase().includes(q) ? 'block' : 'none';
+    });
+  });
+</script>
+</body>
+</html>

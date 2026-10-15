@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato – AcessCity</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="navbar-logo">
+   <div class="logo-icon">
+        <img src="imagens/logo.png" alt="Logo AcessCity">
+    </div>
+    AcessCity<span class="accent"></span>
+</a>
+    <ul class="navbar-nav">
+      <li><a href="index.html">Início</a></li><li><a href="sobre.html">Sobre</a></li>
+      <li><a href="mapa.html">Mapa</a></li><li><a href="recompensas.html">Recompensas</a></li>
+      <li><a href="denuncia.html">Denunciar</a></li><li><a href="contato.html" class="active">Contato</a></li>
+    </ul>
+    <div class="navbar-actions">
+      <button id="btn-contraste" class="btn btn-secondary btn-sm">Contraste</button>
+      <a href="denuncia.html" class="btn btn-primary btn-sm">＋ Denunciar</a>
+    </div>
+    <button class="navbar-toggle"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav class="mobile-menu">
+  <a href="index.html">Início</a><a href="sobre.html">Sobre</a>
+  <a href="mapa.html">Mapa</a><a href="recompensas.html">Recompensas</a>
+  <a href="denuncia.html">Denunciar</a><a href="contato.html">Contato</a>
+</nav>
+
+<main>
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">Início</a><span>›</span><span>Contato</span></nav>
+    <span class="badge">Fale conosco</span>
+    <h1>Entre em Contato</h1>
+    <p>Tem dúvidas, sugestões ou quer fazer uma parceria? Nossa equipe está pronta para atender você.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+
+      <!-- Formulário de contato -->
+      <div>
+        <h2 style="margin-bottom:8px">Envie sua mensagem</h2>
+        <p style="margin-bottom:32px">Responderemos em até 24 horas úteis.</p>
+
+        <form id="form-contato" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="c-nome">Nome completo <span style="color:var(--vermelho)">*</span></label>
+            <input class="form-input" type="text" id="c-nome" placeholder="Seu nome" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="c-email">E-mail <span style="color:var(--vermelho)">*</span></label>
+            <input class="form-input" type="email" id="c-email" placeholder="seu@email.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="c-assunto">Assunto <span style="color:var(--vermelho)">*</span></label>
+            <select class="form-select" id="c-assunto" required>
+              <option value="">Selecione o assunto…</option>
+              <option>Dúvida sobre o projeto</option>
+              <option>Proposta de parceria</option>
+              <option>Imprensa / Mídia</option>
+              <option>Sugestão de melhoria</option>
+              <option>Suporte técnico</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="c-msg">Mensagem <span style="color:var(--vermelho)">*</span></label>
+            <textarea class="form-textarea" id="c-msg" rows="5" placeholder="Escreva sua mensagem aqui…" required></textarea>
+          </div>
+          <button type="button" class="btn btn-primary btn-lg" style="width:100%;justify-content:center" onclick="enviarContatoWhatsApp()">
+            <span style="font-size:1.2rem"></span> Enviar via WhatsApp
+          </button>
+          <p style="text-align:center;font-size:0.8rem;color:var(--cinza-500);margin-top:12px">Você será redirecionado ao WhatsApp com a mensagem preenchida.</p>
+        </form>
+      </div>
+
+      <!-- Informações de contato + Equipe -->
+      <div>
+        <h2 style="margin-bottom:24px">Informações de Contato</h2>
+        <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:40px">
+          <div class="card" style="display:flex;gap:16px;align-items:center;padding:20px">
+            <div><strong>Endereço</strong><br/><span style="color:var(--cinza-500);font-size:0.88rem">UNICAP – R. do Príncipe, 526, Boa Vista, Recife-PE</span></div>
+          </div>
+          <div class="card" style="display:flex;gap:16px;align-items:center;padding:20px">
+            <div><strong>E-mail</strong><br/><a href="mailto:acesscity@unicap.br" style="color:var(--azul-primario);font-size:0.88rem">acesscity@unicap.br</a></div>
+          </div>
+          <div class="card" style="display:flex;gap:16px;align-items:center;padding:20px">
+            <div><strong>WhatsApp</strong><br/><a href="https://wa.me/5581999999999" target="_blank" style="color:var(--azul-primario);font-size:0.88rem">(81) 99999-9999</a></div>
+          </div>
+          <div class="card" style="display:flex;gap:16px;align-items:center;padding:20px">
+            <div><strong>Instituição</strong><br/><span style="color:var(--cinza-500);font-size:0.88rem">UNICAP – Sistemas para Internet · 2026</span></div>
+          </div>
+        </div>
+
+        <!-- Equipe -->
+        <div id="equipe">
+          <h3 style="margin-bottom:16px">Nossa Equipe</h3>
+          <ul style="display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--cinza-100);border-radius:var(--radius-md)">
+              <div><strong style="font-size:0.9rem">Ana Katharina Gonzaga</strong><br/><span style="font-size:0.78rem;color:var(--cinza-500)"></span></div>
+            </li>
+            <li style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--cinza-100);border-radius:var(--radius-md)">
+              <div><strong style="font-size:0.9rem">Beatriz da Silva Dias</strong><br/><span style="font-size:0.78rem;color:var(--cinza-500)"></span></div>
+            </li>
+            <li style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--cinza-100);border-radius:var(--radius-md)">
+              <div><strong style="font-size:0.9rem">Luana Nogueira de Lima</strong><br/><span style="font-size:0.78rem;color:var(--cinza-500)"></span></div>
+            </li>
+            <li style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--cinza-100);border-radius:var(--radius-md)">
+              <div><strong style="font-size:0.9rem">Luiz Felipe Aquino de Souza</strong><br/><span style="font-size:0.78rem;color:var(--cinza-500)"></span></div>
+            </li>
+            <li style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--cinza-100);border-radius:var(--radius-md)">
+              <div><strong style="font-size:0.9rem">Maria Luiza do Nascimento Teixeira</strong><br/><span style="font-size:0.78rem;color:var(--cinza-500)"></span></div>
+            </li>
+            <li style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--cinza-100);border-radius:var(--radius-md)">
+              <div><strong style="font-size:0.9rem">Wemilly Camily Reinaux Barbosa</strong><br/><span style="font-size:0.78rem;color:var(--cinza-500)"></span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+    <div class="footer-brand"><div class="footer-logo">
+    AcessCity
+      </div><p>UNICAP – Sistemas para Internet · Recife, 2026.</p></div>
+      <nav class="footer-col"><h5>Projeto</h5><ul><li><a href="sobre.html">Sobre</a></li></ul></nav>
+      <nav class="footer-col"><h5>Plataforma</h5><ul><li><a href="mapa.html">Mapa</a></li><li><a href="denuncia.html">Denunciar</a></li></ul></nav>
+      <nav class="footer-col"><h5>Suporte</h5><ul><li><a href="contato.html">Contato</a></li><li><a href="contato.html#equipe">Equipe</a></li></ul></nav>
+    </div>
+  </div>
+</footer>
+<button class="scroll-top">↑</button>
+<script src="script.js"></script>
+<script>
+function enviarContatoWhatsApp() {
+  const nome    = document.getElementById('c-nome').value.trim();
+  const email   = document.getElementById('c-email').value.trim();
+  const assunto = document.getElementById('c-assunto').value;
+  const msg     = document.getElementById('c-msg').value.trim();
+  if (!nome || !email || !assunto || !msg) {
+    showToast('Campos obrigatórios', 'Preencha todos os campos antes de enviar.', 'error');
+    return;
+  }
+  const texto =
+    ` *Contato AcessCity*\n\n` +
+    ` *Nome:* ${nome}\n *E-mail:* ${email}\n *Assunto:* ${assunto}\n\n *Mensagem:*\n${msg}`;
+  window.open(`https://wa.me/5581999999999?text=${encodeURIComponent(texto)}`, '_blank');
+  showToast('Mensagem enviada!', 'Você será redirecionado ao WhatsApp.');
+  document.getElementById('form-contato').reset();
+}
+</script>
+</body>
+</html>

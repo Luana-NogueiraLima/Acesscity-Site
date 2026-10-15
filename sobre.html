@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre o Projeto – AcessCity</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="navbar-logo">
+   <div class="logo-icon">
+        <img src="imagens/logo.png" alt="Logo AcessCity">
+    </div>
+    AcessCity<span class="accent"></span>
+</a>
+    <ul class="navbar-nav">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sobre.html" class="active">Sobre</a></li>
+      <li><a href="mapa.html">Mapa</a></li>
+      <li><a href="recompensas.html">Recompensas</a></li>
+      <li><a href="denuncia.html">Denunciar</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <div class="navbar-actions">
+      <button id="btn-contraste" class="btn btn-secondary btn-sm"> Contraste</button>
+      <a href="denuncia.html" class="btn btn-primary btn-sm">＋ Denunciar</a>
+    </div>
+    <button class="navbar-toggle"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav class="mobile-menu">
+  <a href="index.html"> Início</a>
+  <a href="sobre.html"> Sobre</a>
+  <a href="mapa.html"> Mapa</a>
+  <a href="recompensas.html"> Recompensas</a>
+  <a href="denuncia.html"> Denunciar</a>
+  <a href="contato.html"> Contato</a>
+</nav>
+
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">Início</a><span>›</span><span>Sobre</span></nav>
+    <span class="badge"></span>
+    <h1>Sobre o AcessCity</h1>
+    <p>Uma plataforma colaborativa que transforma frustração em ação cidadã.</p>
+  </div>
+</section>
+
+<section class="section" id="problema">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+      <div>
+        <span class="badge"></span>
+        <h2 style="margin:12px 0 16px">A acessibilidade urbana ainda é um grande desafio</h2>
+        <p>Mais de <strong>24 milhões de pessoas</strong> têm algum tipo de deficiência no Brasil. Em Recife, apenas <strong>6,2%</strong> das vias têm rampas para cadeirantes.</p>
+        <p style="margin-top:12px">Apesar da Lei Brasileira de Inclusão, a maioria das cidades foi construída sem planejamento inclusivo, criando espaços excludentes.</p>
+        <h3 style="margin:24px 0 12px">Principais barreiras identificadas:</h3>
+        <ul style="display:flex;flex-direction:column;gap:8px">
+          <li style="display:flex;gap:8px"><span>·</span><span>Calçadas irregulares, buracos e desníveis</span></li>
+          <li style="display:flex;gap:8px"><span>·</span><span>Ausência de rampas de acesso e piso tátil</span></li>
+          <li style="display:flex;gap:8px"><span>·</span><span>Obstáculos nas calçadas (postes, lixo, veículos)</span></li>
+          <li style="display:flex;gap:8px"><span>·</span><span>Transporte público sem adaptação para PcDs</span></li>
+          <li style="display:flex;gap:8px"><span>·</span><span>Falta de canais eficazes de denúncia</span></li>
+        </ul>
+      </div>
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+          <div class="stat-card"><div class="num">24M+</div><div class="desc">Pessoas com deficiência no Brasil</div></div>
+          <div class="stat-card verde"><div class="num">6,2%</div><div class="desc">Das ruas de Recife têm rampas</div></div>
+          <div class="stat-card ambar"><div class="num">80,9%</div><div class="desc">Nunca fizeram uma denúncia</div></div>
+          <div class="stat-card laranja"><div class="num">88%</div><div class="desc">O problema não foi resolvido</div></div>
+        </div>
+        <div class="ranking-table-wrapper">
+          <table class="ranking-table">
+            <caption style="text-align:left;padding:14px 20px;font-weight:700;font-size:0.88rem;background:var(--cinza-100)">Perfil dos 89 participantes da pesquisa</caption>
+            <thead><tr><th>Faixa Etária</th><th>Percentual</th></tr></thead>
+            <tbody>
+              <tr><td>Menos de 18 anos</td><td>39,3%</td></tr>
+              <tr><td>18 a 24 anos</td><td>33,7%</td></tr>
+              <tr><td>25 a 39 anos</td><td>46,2%</td></tr>
+              <tr><td>40 anos ou mais</td><td>15,4%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O QUE É -->
+<section class="section" style="background:var(--cinza-100)" id="proposta">
+  <div class="container">
+    <div class="section-heading text-center">
+      <span class="badge"></span>
+      <h2>O que é o AcessCity?</h2>
+      <p>Aplicativo colaborativo que conecta cidadãos, empresas e poder público.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#427ac2" viewBox="0 0 256 256"><path d="M208,52H182.42L170,33.34A12,12,0,0,0,160,28H96a12,12,0,0,0-10,5.34L73.57,52H48A28,28,0,0,0,20,80V192a28,28,0,0,0,28,28H208a28,28,0,0,0,28-28V80A28,28,0,0,0,208,52Zm4,140a4,4,0,0,1-4,4H48a4,4,0,0,1-4-4V80a4,4,0,0,1,4-4H80a12,12,0,0,0,10-5.34L102.42,52h51.15L166,70.66A12,12,0,0,0,176,76h32a4,4,0,0,1,4,4ZM128,84a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,84Zm0,72a24,24,0,1,1,24-24A24,24,0,0,1,128,156Z"></path></svg></div><h4>Registro por imagem e GPS</h4><p>Foto + localização automática, sem inserir endereço manualmente.</p></div>
+      <div class="feature-card"><div class="feature-icon ambar"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#427cf0" viewBox="0 0 256 256"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm-12-80V80a12,12,0,0,1,24,0v52a12,12,0,0,1-24,0Zm28,40a16,16,0,1,1-16-16A16,16,0,0,1,144,172Z"></path></svg></div><h4>Classificação de urgência</h4><p>Alto, Médio e Baixo — auxilia na priorização de demandas críticas.</p></div>
+      <div class="feature-card"><div class="feature-icon verde"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#427ac2" viewBox="0 0 256 256"><path d="M208,36H48A20,20,0,0,0,28,56V200a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V56A20,20,0,0,0,208,36Zm-4,24v56H52V60ZM52,196V140H204v56ZM160,88a16,16,0,1,1,16,16A16,16,0,0,1,160,88Zm32,80a16,16,0,1,1-16-16A16,16,0,0,1,192,168Z"></path></svg></div><h4>Dados para políticas públicas</h4><p>Mapa de calor urbano com as regiões de maior incidência de problemas.</p></div>
+      <div class="feature-card"><div class="feature-icon laranja"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#427cf0" viewBox="0 0 256 256"><path d="M243,96a20.33,20.33,0,0,0-17.74-14l-56.59-4.57L146.83,24.62a20.36,20.36,0,0,0-37.66,0L87.35,77.44,30.76,82A20.45,20.45,0,0,0,19.1,117.88l43.18,37.24-13.2,55.7A20.37,20.37,0,0,0,79.57,233L128,203.19,176.43,233a20.39,20.39,0,0,0,30.49-22.15l-13.2-55.7,43.18-37.24A20.43,20.43,0,0,0,243,96ZM172.53,141.7a12,12,0,0,0-3.84,11.86L181.58,208l-47.29-29.08a12,12,0,0,0-12.58,0L74.42,208l12.89-54.4a12,12,0,0,0-3.84-11.86L41.2,105.24l55.4-4.47a12,12,0,0,0,10.13-7.38L128,41.89l21.27,51.5a12,12,0,0,0,10.13,7.38l55.4,4.47Z"></path></svg></div><h4>Gamificação</h4><p>Pontos, selos e missões que tornam a participação cívica recompensadora.</p></div>
+      <div class="feature-card"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#427ac2" viewBox="0 0 256 256"><path d="M176,84a36,36,0,1,0-36-36A36,36,0,0,0,176,84Zm0-48a12,12,0,1,1-12,12A12,12,0,0,1,176,36Zm29.28,96.39a12,12,0,0,1,2.49,10l-16,80A12,12,0,0,1,180,232a11.87,11.87,0,0,1-2.36-.23,12,12,0,0,1-9.42-14.12L181.36,152H124a12,12,0,0,1-10.4-18l17.92-31.2a76.1,76.1,0,0,0-79.88,10.55A12,12,0,0,1,36.36,94.86a100,100,0,0,1,118.19-6.68,12,12,0,0,1,3.85,16L144.74,128H196A12,12,0,0,1,205.28,132.39Zm-41.47,44.52a64,64,0,1,1-73.64-68.16,12,12,0,0,1,3.66,23.72,40,40,0,1,0,46.05,42.62,12,12,0,1,1,23.93,1.82Z"></path></svg></div><h4>Acessibilidade digital</h4><p>Alto contraste, leitura por voz, aumento de fonte e tecnologias assistivas.</p></div>
+      <div class="feature-card"><div class="feature-icon verde"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#427cf0" viewBox="0 0 256 256"><path d="M253.88,108.11l-25.53-51a20,20,0,0,0-26.83-9L178.34,59.7,131.7,44.58a12.14,12.14,0,0,0-7.4,0L77.66,59.7,54.48,48.11a20,20,0,0,0-26.83,9L2.12,108.11a20,20,0,0,0,9,26.83l26.67,13.34,51.18,37.41A12.15,12.15,0,0,0,93,187.62l62,16a12.27,12.27,0,0,0,3,.38,12,12,0,0,0,8.48-3.52l52.62-52.62,25.83-12.92a20,20,0,0,0,8.95-26.83Zm-58.12,29.15-27.52-26a12,12,0,0,0-16.76.26c-9.66,9.74-25.06,16.81-40.81,9.55l38.19-37h22.72l25.81,51.63ZM47.32,71.37,60.59,78l-22,43.9-13.27-6.63Zm107,107.3L101.23,165l-42-30.66L85.17,82.5,128,68.61l1.69.55L90,107.68l-.13.12a20,20,0,0,0,3.4,31c20.95,13.39,46,12.07,66.33-2.73l19.2,18.15Zm63-56.77-22-43.9,13.27-6.63,21.95,43.9ZM118.55,219a12,12,0,0,1-14.62,8.62l-26.6-6.87a12,12,0,0,1-4.08-1.93L48.92,201a12,12,0,0,1,14.16-19.37l22.47,16.42,24.38,6.29A12,12,0,0,1,118.55,219Z"></path></svg></div><h4>Ecossistema de parceiros</h4><p>Empresas e ONGs fazem parte do ecossistema, oferecendo benefícios aos usuários.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAS -->
+<section class="section" id="personas">
+  <div class="container">
+    <div class="section-heading"><span class="badge"></span><h2>Quem usa o AcessCity?</h2></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
+          <div style="width:60px;height:60px;background:var(--azul-suave);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem"></div>
+          <div><h3>Ana Paula Santos</h3><p style="font-size:0.85rem;color:var(--cinza-500)">24 anos · Auxiliar de Serviços Gerais</p></div>
+        </div>
+        <p style="margin-bottom:16px">Gestante que sai às 4h30 enfrentando calçadas esburacadas e falta de iluminação. Já tentou denunciar, mas perdeu a confiança nos canais oficiais.</p>
+        <h4 style="margin-bottom:8px;font-size:0.88rem">Dores:</h4>
+        <ul style="display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:0.85rem;display:flex;gap:8px"><span></span><span>Buracos, alagamentos e ruas mal iluminadas</span></li>
+          <li style="font-size:0.85rem;display:flex;gap:8px"><span></span><span>Denúncias anteriores sem nenhuma resposta</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
+          <div style="width:60px;height:60px;background:var(--verde-claro);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem"></div>
+          <div><h3>João Victor Oliveira</h3><p style="font-size:0.85rem;color:var(--cinza-500)">17 anos · Estudante e Trabalhador</p></div>
+        </div>
+        <p style="margin-bottom:16px">Após dias em cadeira de rodas por acidente, percebeu na pele as barreiras que PcDs enfrentam. Nunca soube como fazer uma denúncia formal.</p>
+        <h4 style="margin-bottom:8px;font-size:0.88rem">Dores:</h4>
+        <ul style="display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:0.85rem;display:flex;gap:8px"><span></span><span>Ruas com buracos e alagamentos</span></li>
+          <li style="font-size:0.85rem;display:flex;gap:8px"><span></span><span>Local de trabalho sem rampas de acesso</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo">
+    AcessCity
+</div><p>UNICAP – Sistemas para Internet · Recife, 2026.</p></div>
+      <nav class="footer-col"><h5>Projeto</h5><ul><li><a href="sobre.html">Sobre</a></li><li><a href="sobre.html#proposta">Proposta</a></li></ul></nav>
+      <nav class="footer-col"><h5>Plataforma</h5><ul><li><a href="mapa.html">Mapa</a></li><li><a href="denuncia.html">Denunciar</a></li></ul></nav>
+      <nav class="footer-col"><h5>Suporte</h5><ul><li><a href="contato.html">Contato</a></li></ul></nav>
+    </div>
+  </div>
+</footer>
+<button class="scroll-top">↑</button>
+<script src="script.js"></script>
+</body>
+</html>
