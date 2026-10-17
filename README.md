@@ -79,7 +79,7 @@ Esse processo facilita a publicação de novas versões e reduz a necessidade de
 
 ## 👥 Integrantes da equipe
 
-- Ana Beatriz
+- Beatriz Dias
 - Luana Nogueira
 - Luiz Felipe
 - Maria Luiza
