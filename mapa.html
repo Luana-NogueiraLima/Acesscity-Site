@@ -65,15 +65,32 @@
         <span class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#a1a3a5" viewBox="0 0 256 256"><path d="M232.49,215.51,185,168a92.12,92.12,0,1,0-17,17l47.53,47.54a12,12,0,0,0,17-17ZM44,112a68,68,0,1,1,68,68A68.07,68.07,0,0,1,44,112Z"></path></svg></path></svg></span>
         <input type="search" id="search-oc" placeholder="Buscar bairro ou rua..." />
       </div>
-      <div class="filtros">
-        <button class="filtro-btn active" data-filtro="todos">Todos</button>
-        <button class="filtro-btn" data-filtro="rampa">🔵 Rampa</button>
-        <button class="filtro-btn" data-filtro="calcada">🟡 Calçada</button>
-        <button class="filtro-btn" data-filtro="sinalizacao">🟠 Sinalização</button>
-        <button class="filtro-btn" data-filtro="outros">⚫ Outros</button>
-      </div>
-      <a href="denuncia.html" class="btn btn-primary btn-sm">＋ Nova denúncia</a>
-    </div>
+      <div class="filtros-avancados" style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center; width: 100%; margin-top: 15px;">
+  <select id="filtro-categoria" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+    <option value="">Todas as Categorias</option>
+    <option value="rampa">Rampa</option>
+    <option value="calcada">Calçada</option>
+    <option value="sinalizacao">Sinalização</option>
+    <option value="outros">Outros</option>
+  </select>
+
+  <select id="filtro-urgencia" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+    <option value="">Todas as Urgências</option>
+    <option value="alto">Alto</option>
+    <option value="medio">Médio</option>
+    <option value="baixo">Baixo</option>
+  </select>
+
+  <select id="filtro-status" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+    <option value="">Todos os Status</option>
+    <option value="analise">Em análise</option>
+    <option value="execucao">Em execução</option>
+    <option value="resolvido">Resolvido</option>
+    <option value="recebida">Recebida</option>
+  </select>
+
+  <button id="btn-limpar" class="btn btn-secondary btn-sm" style="background-color: #e74c3c; color: white; border: none;">Limpar Filtros</button>
+</div>
 
     <div class="mapa-layout">
 
@@ -206,12 +223,68 @@
 <button class="scroll-top">↑</button>
 <script src="script.js"></script>
 <script>
-  document.getElementById('search-oc')?.addEventListener('input', function () {
-    const q = this.value.toLowerCase();
-    document.querySelectorAll('.ocorrencia-card').forEach(card => {
-      card.style.display = card.textContent.toLowerCase().includes(q) ? 'block' : 'none';
+  <script>
+  const searchInput = document.getElementById('search-oc');
+  const selectCategoria = document.getElementById('filtro-categoria');
+  const selectUrgencia = document.getElementById('filtro-urgencia');
+  const selectStatus = document.getElementById('filtro-status');
+  const btnLimpar = document.getElementById('btn-limpar');
+  const cards = document.querySelectorAll('.ocorrencia-card');
+
+  function filtrarOcorrencias() {
+    const termoBusca = searchInput.value.toLowerCase();
+    const catVal = selectCategoria.value.toLowerCase();
+    const urgVal = selectUrgencia.value.toLowerCase();
+    const statVal = selectStatus.value.toLowerCase();
+
+    cards.forEach(card => {
+      const textoCard = card.textContent.toLowerCase();
+      const categoriaCard = (card.getAttribute('data-categoria') || '').toLowerCase();
+      
+      // Identifica urgência e status com base no texto interno dos badges do card
+      const badges = card.querySelectorAll('.status-badge');
+      let urgenciaCard = '';
+      let statusCard = '';
+      
+      badges.forEach(b => {
+        const txt = b.textContent.toLowerCase();
+        if (txt.includes('alto') || txt.includes('médio') || txt.includes('baixo')) {
+          urgenciaCard = txt;
+        }
+        if (txt.includes('análise') || txt.includes('execução') || txt.includes('resolvido') || txt.includes('recebida')) {
+          statusCard = txt;
+        }
+      });
+
+      // Validação dos critérios combinados
+      const matchBusca = textoCard.includes(termoBusca);
+      const matchCat = !catVal || categoriaCard.includes(catVal);
+      const matchUrg = !urgVal || urgenciaCard.includes(urgVal);
+      const matchStat = !statVal || statusCard.includes(statVal);
+
+      if (matchBusca && matchCat && matchUrg && matchStat) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
     });
+  }
+
+  // Ouvintes de eventos para acionar os filtros dinamicamente
+  searchInput?.addEventListener('input', filtrarOcorrencias);
+  selectCategoria?.addEventListener('change', filtrarOcorrencias);
+  selectUrgencia?.addEventListener('change', filtrarOcorrencias);
+  selectStatus?.addEventListener('change', filtrarOcorrencias);
+
+  // Botão Limpar Filtros
+  btnLimpar?.addEventListener('click', () => {
+    searchInput.value = '';
+    selectCategoria.value = '';
+    selectUrgencia.value = '';
+    selectStatus.value = '';
+    filtrarOcorrencias();
   });
+</script>
 </script>
 </body>
 </html>
