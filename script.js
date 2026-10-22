@@ -48,7 +48,7 @@ function showToast(title, msg, type = 'success') {
     document.body.appendChild(toast);
   }
   toast.className = 'toast' + (type === 'error' ? ' error' : '');
-  toast.querySelector('.toast-icon').textContent  = type === 'success' ? '✅' : '❌';
+  toast.querySelector('.toast-icon').textContent   = type === 'success' ? '✅' : '❌';
   toast.querySelector('.toast-title').textContent = title;
   toast.querySelector('.toast-msg').textContent   = msg;
   toast.classList.add('show');
@@ -58,10 +58,10 @@ function showToast(title, msg, type = 'success') {
 
 /* ── 3. MODAL ── */
 function openModal(id)  { const m = document.getElementById(id); if (m) { m.classList.add('open');    document.body.style.overflow = 'hidden'; } }
-function closeModal(id) { const m = document.getElementById(id); if (m) { m.classList.remove('open'); document.body.style.overflow = '';       } }
+function closeModal(id) { const m = document.getElementById(id); if (m) { m.classList.remove('open'); document.body.style.overflow = '';        } }
 document.addEventListener('click', e => {
   if (e.target.classList.contains('modal-overlay')) closeModal(e.target.id);
-  if (e.target.classList.contains('modal-close'))   closeModal(e.target.closest('.modal-overlay').id);
+  if (e.target.classList.contains('modal-close'))    closeModal(e.target.closest('.modal-overlay').id);
 });
 
 /* ── 4. TABS ── */
@@ -81,14 +81,78 @@ function initTabs() {
   });
 }
 
-/* ── 5. FILTROS ── */
+/* ── 5. FILTROS AVANÇADOS DO MAPA ── */
 function initFiltros() {
+  const searchInput     = document.getElementById('search-oc');
+  const selectCategoria = document.getElementById('filtro-categoria');
+  const selectUrgencia  = document.getElementById('filtro-urgencia');
+  const selectStatus    = document.getElementById('filtro-status');
+  const btnLimpar       = document.getElementById('btn-limpar');
+  const cards           = document.querySelectorAll('.ocorrencia-card');
+
+  function filtrarOcorrencias() {
+    const termoBusca = searchInput ? searchInput.value.toLowerCase() : '';
+    const catVal     = selectCategoria ? selectCategoria.value.toLowerCase() : '';
+    const urgVal     = selectUrgencia ? selectUrgencia.value.toLowerCase() : '';
+    const statVal    = selectStatus ? selectStatus.value.toLowerCase() : '';
+
+    cards.forEach(card => {
+      const textoCard     = card.textContent.toLowerCase();
+      const categoriaCard = (card.getAttribute('data-categoria') || '').toLowerCase();
+      
+      // Identifica urgência e status a partir dos badges internos do card
+      const badges = card.querySelectorAll('.status-badge');
+      let urgenciaCard = '';
+      let statusCard   = '';
+      
+      badges.forEach(b => {
+        const txt = b.textContent.toLowerCase();
+        if (txt.includes('alto') || txt.includes('médio') || txt.includes('baixo')) {
+          urgenciaCard = txt;
+        }
+        if (txt.includes('análise') || txt.includes('execução') || txt.includes('resolvido') || txt.includes('recebida')) {
+          statusCard = txt;
+        }
+      });
+
+      // Validação combinada de todos os campos de filtro
+      const matchBusca = textoCard.includes(termoBusca);
+      const matchCat   = !catVal || categoriaCard.includes(catVal);
+      const matchUrg   = !urgVal || urgenciaCard.includes(urgVal);
+      const matchStat  = !statVal || statusCard.includes(statVal);
+
+      if (matchBusca && matchCat && matchUrg && matchStat) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Eventos para acionar o filtro automaticamente
+  if (searchInput)     searchInput.addEventListener('input', filtrarOcorrencias);
+  if (selectCategoria) selectCategoria.addEventListener('change', filtrarOcorrencias);
+  if (selectUrgencia)  selectUrgencia.addEventListener('change', filtrarOcorrencias);
+  if (selectStatus)    selectStatus.addEventListener('change', filtrarOcorrencias);
+
+  // Botão Limpar Filtros
+  if (btnLimpar) {
+    btnLimpar.addEventListener('click', () => {
+      if (searchInput)     searchInput.value = '';
+      if (selectCategoria) selectCategoria.value = '';
+      if (selectUrgencia)  selectUrgencia.value = '';
+      if (selectStatus)    selectStatus.value = '';
+      filtrarOcorrencias();
+    });
+  }
+
+  // Compatibilidade com botões simples antigos caso existam
   document.querySelectorAll('.filtro-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filtro = btn.dataset.filtro;
-      document.querySelectorAll('.ocorrencia-card').forEach(card => {
+      cards.forEach(card => {
         card.style.display = (filtro === 'todos' || card.dataset.categoria === filtro) ? 'block' : 'none';
       });
     });
@@ -155,7 +219,7 @@ function handleFileUpload(file, area) {
 
 /* ── 7. ENVIO WHATSAPP ── */
 function enviarWhatsApp() {
-  const nome   = document.getElementById('nome')?.value?.trim()      || '';
+  const nome   = document.getElementById('nome')?.value?.trim()     || '';
   const email  = document.getElementById('email')?.value?.trim()     || '';
   const local  = document.getElementById('local')?.value?.trim()     || '';
   const categ  = document.getElementById('input-categoria')?.value   || '';
