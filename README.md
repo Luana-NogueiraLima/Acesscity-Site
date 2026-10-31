@@ -15,6 +15,25 @@ O projeto também apresenta recursos como mapa de ocorrências, denúncias e rec
 - Incentivar a participação da comunidade.
 - Utilizar a tecnologia para contribuir com cidades mais inclusivas.
 
+## ✨ Melhoria implementada: filtros no Mapa de Ocorrências
+
+Como evolução do projeto, foram adicionados filtros ao Mapa de Ocorrências, permitindo que o usuário escolha quais ocorrências aparecem no mapa, em vez de visualizar todas misturadas. Com isso, fica mais fácil encontrar um tipo específico de barreira, como falta de rampa ou calçada danificada.
+
+Problema identificado: todas as ocorrências eram exibidas juntas no mapa, o que dificultava a busca por um tipo específico de barreira.
+
+O que foi desenvolvido:
+
+Filtro por categoria, urgência e status.
+Possibilidade de combinar mais de um filtro ao mesmo tempo.
+Botão "Limpar filtros" para voltar à visualização completa.
+Funcionamento em celular e desktop.
+
+Benefício para os usuários: encontrar e priorizar problemas de acessibilidade com mais rapidez.
+
+Como usar: na página do mapa de ocorrências, selecione os filtros desejados para exibir apenas as ocorrências correspondentes. Para voltar a ver todas, clique em "Limpar filtros".
+
+A melhoria foi registrada como tarefa no Jira (ACE-2), desenvolvida em uma branch própria e integrada à main por meio de Pull Request, antes do deploy no Render.
+
 ## 🛠️ Tecnologias utilizadas
 
 - **HTML5:** estrutura das páginas.
