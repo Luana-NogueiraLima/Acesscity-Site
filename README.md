@@ -4,47 +4,82 @@
 
 ## 📌 Sobre o projeto
 
-O **AcessCity** é um projeto web voltado à acessibilidade urbana, desenvolvido com o objetivo de contribuir para a construção de cidades mais inclusivas. A plataforma busca facilitar o registro e o acompanhamento de problemas de acessibilidade, promovendo a conscientização sobre as dificuldades encontradas nos espaços urbanos.
+O **AcessCity** é um projeto web voltado à acessibilidade urbana, desenvolvido com o objetivo de contribuir para a construção de cidades mais inclusivas.
 
-O projeto também apresenta recursos como mapa de ocorrências, denúncias e recompensas, relacionados à proposta de incentivar a participação das pessoas na identificação de barreiras urbanas.
+A plataforma busca facilitar o registro e o acompanhamento de problemas de acessibilidade, promovendo a conscientização sobre as dificuldades encontradas nos espaços urbanos.
+
+Entre seus recursos estão o mapa de ocorrências, o registro de denúncias e o sistema de recompensas, que incentivam a participação da comunidade na identificação de barreiras urbanas.
 
 ## 🎯 Objetivos
 
 - Promover a conscientização sobre a acessibilidade urbana.
 - Facilitar o registro e a visualização de problemas de acessibilidade.
 - Incentivar a participação da comunidade.
-- Utilizar a tecnologia para contribuir com cidades mais inclusivas.
+- Utilizar a tecnologia como ferramenta de inclusão social.
+
+## 📄 Documentação de Especificação de Requisitos (ERS)
+
+Para formalizar a engenharia de software do projeto, foi elaborada a **Especificação de Requisitos de Software (ERS)** do AcessCity, seguindo o padrão **RUP / IEEE 830**.
+
+O documento apresenta o escopo, o público-alvo, as restrições técnicas, as interfaces e os requisitos funcionais e não funcionais do sistema.
+
+**Documento:** [`Especificação de Requisitos de Software.pdf`](./docs/Especificação%20de%20Requisitos%20de%20Software.pdf)
+
+### Requisitos funcionais (RF01–RF07)
+
+- Registro de ocorrências.
+- Mapa interativo e dinâmico.
+- Filtros combináveis por categoria, urgência e status.
+- Geolocalização automática.
+- Acompanhamento do status das ocorrências.
+- Sistema de gamificação e recompensas.
+- Canal de contato.
+
+### Requisitos não funcionais (RNF01–RNF09)
+
+- Acessibilidade digital, incluindo alto contraste e suporte a leitores de tela.
+- Fluxo de navegação otimizado em até três cliques.
+- Responsividade para diferentes dispositivos.
+- Desempenho na filtragem inferior a 500 ms.
+- Conformidade com a Lei Geral de Proteção de Dados (LGPD).
 
 ## ✨ Melhoria implementada: filtros no Mapa de Ocorrências
 
-Como evolução do projeto, foram adicionados **filtros ao Mapa de Ocorrências**, permitindo que o usuário escolha quais ocorrências aparecem no mapa, em vez de visualizar todas misturadas. Com isso, fica mais fácil encontrar um tipo específico de barreira, como falta de rampa ou calçada danificada.
+Como evolução do projeto, foi implementado um sistema de filtros no Mapa de Ocorrências, permitindo que os usuários visualizem apenas os registros correspondentes aos critérios selecionados.
 
-**Problema identificado:** todas as ocorrências eram exibidas juntas no mapa, o que dificultava a busca por um tipo específico de barreira.
+**Problema identificado:** todas as ocorrências eram exibidas simultaneamente, dificultando a localização de problemas específicos de acessibilidade.
 
-**O que foi desenvolvido:**
+**Funcionalidades desenvolvidas:**
 
 - Filtro por **categoria**, **urgência** e **status**.
-- Possibilidade de **combinar mais de um filtro** ao mesmo tempo.
-- Botão **"Limpar filtros"** para voltar à visualização completa.
-- Funcionamento em **celular e desktop**.
+- Combinação de diferentes filtros simultaneamente.
+- Botão **"Limpar filtros"**, para restaurar a visualização completa.
+- Interface responsiva para dispositivos móveis e desktops.
 
-**Benefício para os usuários:** encontrar e priorizar problemas de acessibilidade com mais rapidez.
+**Benefício:** facilitar a identificação e a priorização de problemas de acessibilidade urbana, tornando a navegação mais prática e eficiente.
 
-**Como usar:** na página do mapa de ocorrências, selecione os filtros desejados para exibir apenas as ocorrências correspondentes. Para voltar a ver todas, clique em **"Limpar filtros"**.
+**Como utilizar:** na página do mapa de ocorrências, selecione os filtros desejados para visualizar os registros correspondentes. Para retornar à visualização completa, clique em **"Limpar filtros"**.
 
-A melhoria foi registrada como tarefa no **Jira** (ACE-2), desenvolvida em uma **branch** própria e integrada à `main` por meio de **Pull Request**, antes do deploy no Render.
-## 🛠️ Tecnologias utilizadas
+A implementação foi organizada por meio de uma tarefa no **Jira (ACE-2)**, desenvolvida em uma branch específica e integrada à branch `main` por meio de um **Pull Request**, antes da publicação no Render.
 
-- **HTML5:** estrutura das páginas.
-- **CSS3:** estilização e organização visual.
-- **JavaScript:** implementação de funcionalidades e interatividade.
-- **GitHub:** armazenamento do código-fonte e controle de versões.
-- **Render:** hospedagem e publicação do site na internet.
+## 🛠️ Tecnologias e ferramentas
+
+| Tecnologia / Ferramenta | Utilização |
+|---|---|
+| HTML5 | Estrutura das páginas. |
+| CSS3 | Estilização e organização visual. |
+| JavaScript | Funcionalidades e interatividade. |
+| Git | Controle de versões. |
+| GitHub | Armazenamento do código-fonte e colaboração. |
+| Jira | Gerenciamento e acompanhamento de tarefas. |
+| Render | Hospedagem e publicação da aplicação. |
 
 ## 📂 Estrutura do projeto
 
 ```text
 Acesscity-Site/
+├── docs/
+│   └── Especificação de Requisitos de Software.pdf
 ├── index.html
 ├── sobre.html
 ├── mapa.html
@@ -58,45 +93,60 @@ Acesscity-Site/
 
 ## 🌐 Acesso ao projeto
 
-O site está publicado na plataforma Render e pode ser acessado pelo link:
+**Aplicação publicada:**
 
-[**https://acesscity-site.onrender.com**](https://acesscity-site.onrender.com)
+🔗 [AcessCity — Acesse o site](https://acesscity-site.onrender.com)
 
 **Repositório GitHub:** [Acesscity-Site](https://github.com/Luana-NogueiraLima/Acesscity-Site)
 
-## 💻 Como executar o projeto localmente
+## 💻 Como executar localmente
 
-Para visualizar o projeto em um computador:
+Para visualizar o projeto em sua máquina:
 
-1. Acesse o repositório do projeto no GitHub.
-2. Faça o download dos arquivos ou clone o repositório.
-3. Extraia os arquivos, caso tenha feito o download em formato ZIP.
+1. Acesse o [repositório no GitHub](https://github.com/Luana-NogueiraLima/Acesscity-Site).
+2. Clone o repositório ou faça o download dos arquivos em formato ZIP.
+3. Caso tenha baixado o ZIP, extraia os arquivos.
 4. Abra o arquivo `index.html` em um navegador.
 
 ## ☁️ Hospedagem e deploy
 
-O AcessCity utiliza a plataforma **Render** para hospedar e disponibilizar o site na internet. A aplicação foi configurada como um **Static Site**, adequado a projetos desenvolvidos com HTML, CSS e JavaScript.
+O AcessCity está hospedado na plataforma **Render**, configurado como um **Static Site**, modelo adequado para aplicações desenvolvidas com HTML, CSS e JavaScript.
 
-O repositório do GitHub está conectado ao Render, permitindo que a plataforma acesse o código-fonte e publique a aplicação.
+O repositório do GitHub está conectado ao Render, permitindo que a plataforma acesse o código-fonte e realize a publicação da aplicação conforme as configurações de deploy.
 
-Após a conclusão do processo de deploy, a versão publicada pode ser acessada pela URL pública:
+A versão publicada pode ser acessada em:
 
-[https://acesscity-site.onrender.com](https://acesscity-site.onrender.com)
+🔗 https://acesscity-site.onrender.com
 
 ## 🔄 Integração e CI/CD
 
-O projeto aplica conceitos de integração e implantação contínuas por meio da utilização conjunta do GitHub e do Render.
+O projeto utiliza ferramentas de controle de versão e hospedagem para organizar o processo de desenvolvimento e publicação.
 
-- **Controle de versões:** o GitHub armazena o código-fonte e mantém o histórico das alterações por meio de commits.
-- **Desenvolvimento colaborativo:** a utilização de branches e Pull Requests permite organizar, revisar e integrar as melhorias implementadas.
-- **Deploy:** o Render publica a aplicação a partir do repositório GitHub, conforme a branch e as configurações definidas no serviço.
-- **Acompanhamento:** o painel do Render permite consultar o status das implantações e verificar possíveis erros durante o processo.
+O fluxo de integração e implantação contempla:
 
-O fluxo de desenvolvimento e publicação pode ser representado da seguinte forma:
+- **Controle de versões:** utilização do Git e GitHub para armazenar o código-fonte e registrar alterações por meio de commits.
+- **Desenvolvimento organizado:** utilização de branches para desenvolver melhorias de forma independente.
+- **Integração:** utilização de Pull Requests para revisar e integrar alterações à branch principal.
+- **Deploy:** publicação da aplicação pelo Render, conectado ao repositório GitHub.
+- **Monitoramento:** acompanhamento do status das implantações e identificação de possíveis erros pelo painel do Render.
 
-**Alteração no código → Commit no GitHub → Pull Request e integração → Deploy no Render → Validação do site publicado**
+### Fluxo de desenvolvimento
 
-Esse processo contribui para organizar a manutenção do software, facilitar a publicação de melhorias e disponibilizar novas versões da aplicação.
+```text
+Alteração no código
+        ↓
+Commit no GitHub
+        ↓
+Criação de Pull Request
+        ↓
+Revisão e integração na main
+        ↓
+Deploy no Render
+        ↓
+Validação da aplicação publicada
+```
+
+Esse processo contribui para uma manutenção mais organizada, facilita a integração de melhorias e permite disponibilizar novas versões da aplicação.
 
 ## 👥 Integrantes da equipe
 
@@ -108,11 +158,22 @@ Esse processo contribui para organizar a manutenção do software, facilitar a p
 
 ## 📚 Aprendizados
 
-O desenvolvimento do AcessCity proporcionou conhecimentos práticos sobre programação web, organização de arquivos, controle de versões, hospedagem na nuvem e publicação de aplicações.
+O desenvolvimento do AcessCity proporcionou experiências práticas em diferentes etapas da Engenharia de Software, incluindo:
 
-A atividade também permitiu compreender a importância da integração entre ferramentas de desenvolvimento, da utilização de branches e Pull Requests e dos processos de deploy para facilitar a manutenção e a atualização de um site.
+- Engenharia de requisitos e documentação técnica.
+- Desenvolvimento de interfaces web com HTML, CSS e JavaScript.
+- Organização e manutenção de projetos.
+- Controle de versões com Git e GitHub.
+- Gerenciamento de tarefas com Jira.
+- Hospedagem e publicação de aplicações com Render.
+- Utilização de branches e Pull Requests em fluxos de desenvolvimento.
+
+A atividade também permitiu compreender a importância do planejamento, da documentação e da integração entre ferramentas para o desenvolvimento e a manutenção de aplicações web.
 
 ## 💙 Considerações finais
 
-O AcessCity une tecnologia e inclusão social em uma proposta voltada à acessibilidade urbana. Por meio do desenvolvimento, da evolução e da publicação da plataforma, foi possível
+O AcessCity une tecnologia e inclusão social em uma proposta voltada à acessibilidade urbana.
+
+Por meio do desenvolvimento, da documentação, da implementação de melhorias e da publicação da plataforma, foi possível aplicar na prática conceitos fundamentais da Engenharia de Software.
+
 **AcessCity — Tecnologia a favor da acessibilidade.**
